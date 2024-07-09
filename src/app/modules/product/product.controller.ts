@@ -2,7 +2,7 @@ import catchAsync from '../../utilis/catchAsync';
 
 //  Create Product
 const createProduct = catchAsync(async (req, res, next) => {
-
+  
 
 
 

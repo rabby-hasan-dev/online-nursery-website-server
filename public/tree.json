@@ -1,0 +1,74 @@
+[
+    {
+      "name": "Redbud Tree (Cercis canadensis)",
+      "description": "A beautiful flowering tree with stunning pink blooms in spring before leaves emerge. Grows to be 20-30 feet tall.",
+      "price": 69.99,
+      "category": "ObjectId for Trees",  
+      "stock": 15,
+      "rating": 4.3,
+      "images": ["redbud_tree.jpg"]
+    },
+    {
+      "name": "Japanese Maple (Acer palmatum)",
+      "description": "A prized ornamental tree known for its delicate leaves with vibrant fall colors. Prefers partial shade and moist soil. Grows to be 15-20 feet tall.",
+      "price": 99.99,
+      "category": "ObjectId for Trees", 
+      "stock": 8,
+      "rating": 4.8,
+      "images": ["japanese_maple.jpg"]
+    },
+    {
+      "name": "Dogwood Tree (Cornus florida)",
+      "description": "A flowering tree with beautiful white or pink blooms in spring. Prefers full sun to partial shade. Grows to be 15-25 feet tall.",
+      "price": 49.99,
+      "category": "ObjectId for Trees",  
+      "stock": 20,
+      "rating": 4.6,
+      "images": ["dogwood_tree.jpg"]
+    },
+    {
+      "name": "Fruiting Apple Tree (Malus domestica)",
+      "description": "A variety of apple trees with delicious fruits in fall. Choose from different varieties like Gala, Honeycrisp, or Fuji. Grows to be 15-20 feet tall.",
+      "price": 74.99,
+      "category": "ObjectId for Trees", 
+      "stock": 12,
+      "rating": 4.1,
+      "images": ["fruiting_apple_tree.jpg"]
+    },
+    {
+      "name": "Citrus Tree (Citrus spp.)",
+      "description": "Choose from various citrus trees like lemon, orange, or lime. Great for sunny locations and containers. Grows to be 8-15 feet tall depending on the variety.",
+      "price": 59.99,
+      "category": "ObjectId for Trees",  
+      "stock": 10,
+      "rating": 4.4,
+      "images": ["citrus_tree.jpg"]
+    },
+    {
+      "name": "Cypress Tree (Cupressus sempervirens)",
+      "description": "A tall, evergreen tree with a columnar shape. Perfect for adding a touch of vertical interest to your landscape. Grows to be 40-60 feet tall.",
+      "price": 89.99,
+      "category": "ObjectId for Trees", 
+      "stock": 5,
+      "rating": 4.2,
+      "images": ["cypress_tree.jpg"]
+    },
+    {
+      "name": "Willow Tree (Salix spp.)",
+      "description": "A graceful tree with weeping branches. Prefers moist soil and full sun. Grows to be 20-40 feet tall depending on the variety.",
+      "price": 39.99,
+      "category": "ObjectId for Trees",  
+      "stock": 18,
+      "rating": 4.7,
+      "images": ["willow_tree.jpg"]
+    },
+    {
+      "name": "Oak Tree (Quercus spp.)",
+      "description": "A majestic and long-lived tree with strong branches and lobed leaves. Prefers full sun to partial shade. Choose from various oak varieties. Grows to be 50-100 feet tall depending on the species.",
+      "price": 99.99,
+      "category": "ObjectId for Trees",  
+      "stock": 3,
+      "rating": 4.9,
+      "images": ["oak_tree.jpg"]
+    }
+]

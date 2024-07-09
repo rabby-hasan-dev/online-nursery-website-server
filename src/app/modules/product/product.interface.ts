@@ -13,7 +13,8 @@ export interface IProduct {
   category: Types.ObjectId;
   stock: number;
   rating?: number;
-  images: string[];
+  images: string;
+  isDeleted?: boolean;
 }
 
 

@@ -6,7 +6,8 @@ import { ICategory } from './category.interface';
 const categorySchema = new Schema<ICategory>({
     name: { type: String, required: true, unique: true },
     description: { type: String },
-    productStock: { type: String }
+    productStock: { type: String },
+    isDeleted: { type: Boolean, default: false }
 
 });
 

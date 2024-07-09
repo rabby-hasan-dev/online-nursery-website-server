@@ -1,5 +1,6 @@
 
 import { model, Schema } from 'mongoose';
+import { boolean } from 'zod';
 import { IProduct, ProductsModel } from './product.interface';
 
 
@@ -12,7 +13,8 @@ const productSchema = new Schema<IProduct, ProductsModel>({
   category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
   stock: { type: Number, required: true },
   rating: { type: Number, default: 0 },
-  images: { type: [String], default: [] },
+  images: { type: String, required: true },
+  isDeleted: { type: boolean, default: false }
 
 });
 
