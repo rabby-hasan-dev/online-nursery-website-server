@@ -2,12 +2,12 @@ import express from 'express';
 import { productController } from './product.controller';
 const router = express.Router();
 
-router.post('/product', productController.createProduct);
-router.get('/product', productController.getAllProduct);
-router.get('/product/:productId', productController.getProductById);
-router.put('/product/:productId', productController.getProductByIdAndUpdate);
+router.post('/', productController.createProduct);
+router.get('/', productController.getAllProduct);
+router.get('/:productId', productController.getProductById);
+router.put('/:productId', productController.getProductByIdAndUpdate);
 router.delete(
-  '/product/:productId',
+  '/:productId',
   productController.getProductByIdAndDelete,
 );
 

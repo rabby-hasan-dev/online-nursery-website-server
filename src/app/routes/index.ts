@@ -7,7 +7,7 @@ const router = Router();
 
 const moduleRoutes = [
   {
-    path: '/product',
+    path: '/products',
     route: productRouter,
   },
   {
