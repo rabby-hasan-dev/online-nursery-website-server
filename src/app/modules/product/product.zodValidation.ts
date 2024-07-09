@@ -1,33 +1,35 @@
 import { z } from 'zod';
 
-// Define the VariantValidationSchema in Zod
 
-const VariantValidationSchema = z.object({
-  type: z.string().trim().min(1, 'type is required'),
-  value: z.string().trim().min(1, 'value is required'),
-});
-
-// Define the InventoryValidationSchema in Zod
-
-const InventoryValidationSchema = z.object({
-  quantity: z
-    .number()
-    .int()
-    .nonnegative('quantity must be a non-negative number'),
-  inStock: z.boolean(),
-});
-
-// Define the ProductSchema in Zod
+//url-validator .url()
 
 const ProductValidationSchema = z.object({
-  _id: z.string().optional(),
-  name: z.string().trim().min(1, 'name is required'),
-  description: z.string().trim().min(1, 'description is required'),
-  price: z.number().nonnegative('price must be a non-negative number'),
-  category: z.string().trim().min(1, 'category is required'),
-  tags: z.array(z.string().trim().min(1, 'tag cannot be empty')),
-  variants: z.array(VariantValidationSchema).min(1, 'variants is required'),
-  inventory: InventoryValidationSchema,
-});
+  body: z.object({
+    name: z.string({ invalid_type_error: "name is Required" }).trim().min(1, 'Name is required').max(100, 'Name is too long'),
+    description: z.string().trim().min(1, 'Description is required').max(2000, 'Description is too long'),
+    price: z.number().positive().nonnegative(),
+    category: z.string({ invalid_type_error: 'Category ID is required' }),
+    stock: z.number().nonnegative().int(),
+    rating: z.number().optional(),
+    images: z.string({ invalid_type_error: 'Image URL is required' })
+  })
+})
+const UpdateProductValidationSchema = z.object({
+  body: z.object({
+    name: z.string({ invalid_type_error: "name is Required" }).trim().min(1, 'Name is required').max(100, 'Name is too long').optional(),
+    description: z.string().trim().min(1, 'Description is required').max(2000, 'Description is too long').optional(),
+    price: z.number().positive().nonnegative().optional(),
+    category: z.string({ invalid_type_error: 'Category ID is required' }).optional(),
+    stock: z.number().nonnegative().int().optional(),
+    rating: z.number().optional(),
+    images: z.string({ invalid_type_error: 'Image URL is required' }).optional()
+  })
+})
 
-export default ProductValidationSchema;
+
+export const productZodValidator = {
+  ProductValidationSchema,
+  UpdateProductValidationSchema
+}
+
+

@@ -13,7 +13,12 @@ const createOrderIntoDB = async (order: IOrder) => {
 // Retrived all order data from database
 
 const getAllOrderIntoDB = async () => {
-  const result = await Order.find({ isCancel: { $ne: true } });
+  const result = await Order.find({ isCancel: { $ne: true } }).populate({
+    path: 'productId',
+    populate: {
+      path: "category"
+    }
+  });
   return result;
 
 };
