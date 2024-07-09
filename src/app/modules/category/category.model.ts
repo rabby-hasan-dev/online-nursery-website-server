@@ -9,6 +9,9 @@ const categorySchema = new Schema<ICategory>({
     productStock: { type: String },
     isDeleted: { type: Boolean, default: false }
 
+},{
+    timestamps: true,
+  versionKey: false
 });
 
 

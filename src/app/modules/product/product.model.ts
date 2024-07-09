@@ -15,6 +15,9 @@ const productSchema = new Schema<IProduct, ProductsModel>({
   images: { type: String, required: true },
   isDeleted: { type: Boolean, default: false }
 
+}, {
+  timestamps: true,
+  versionKey: false
 });
 
 
