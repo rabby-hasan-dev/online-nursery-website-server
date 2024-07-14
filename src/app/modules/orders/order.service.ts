@@ -7,6 +7,46 @@ import { Order } from "./order.model";
 const createOrderIntoDB = async (order: IOrder) => {
   const result = await Order.create(order);
   return result;
+  console.log(order);
+  //  Validate Product Existence and Inventory Level (Atomic Operation)
+  // const product = await Product.findOne({ _id: order.productId }).lean();
+  // // Lean for performance
+
+  // if (!product) {
+  //   throw new Error('Product does not exist!');
+  // }
+
+  // if (product.stock < order.quantity) {
+  //   throw new Error('Insufficient quantity available in stock');
+  // }
+
+  // //  Decrement Inventory Level and Create Order (Transaction)
+  // const session = await Product.startSession();
+  // session.startTransaction();
+
+  // try {
+  //   const updatedQuantity = product.stock - order.quantity;
+  //   await Product.updateOne(
+  //     { _id: product._id },
+  //     { $set: { stock: updatedQuantity } },
+  //     { session } // Include session for transaction
+  //   );
+
+  //   const newOrder = await Order.create(order, { session }); // Include session for transaction
+  //   await session.commitTransaction();
+  //   return newOrder;
+
+  // } catch (error) {
+  //   await session.abortTransaction();
+  //   throw error; // Re-throw the error for proper handling
+  // } finally {
+  //   session.endSession(); // Release the session even on errors
+  // }
+
+
+
+
+
 
 };
 

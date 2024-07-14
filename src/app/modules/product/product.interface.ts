@@ -7,10 +7,11 @@ import { Model, Types } from "mongoose";
 
 
 export interface IProduct {
-  name: string;
+  title: string;
   description: string;
   price: number;
   category: Types.ObjectId;
+  brand: string;
   stock: number;
   rating?: number;
   images: string;

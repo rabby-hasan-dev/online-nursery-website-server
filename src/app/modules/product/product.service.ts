@@ -49,7 +49,7 @@ const getProductByIdAndUpdateIntoDB = async (id: string, data: Partial<IProduct>
 
 //  find Product by database id
 const getProductByIdAndDeleteIntoDB = async (id: string) => {
-  const result = await Product.findByIdAndUpdate(id, { isDeleted: true }, { new: true });
+  const result = await Product.findByIdAndDelete(id, { new: true });
   return result;
 };
 

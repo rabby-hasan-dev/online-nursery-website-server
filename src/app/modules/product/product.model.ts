@@ -6,10 +6,11 @@ import { IProduct, ProductsModel } from './product.interface';
 
 
 const productSchema = new Schema<IProduct, ProductsModel>({
-  name: { type: String, required: true, trim: true },
+  title: { type: String, required: true, trim: true },
   description: { type: String, required: true, trim: true },
   price: { type: Number, required: true },
   category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
+  brand: { type: String, required: true, trim: true },
   stock: { type: Number, required: true },
   rating: { type: Number, default: 0 },
   images: { type: String, required: true },
@@ -21,7 +22,7 @@ const productSchema = new Schema<IProduct, ProductsModel>({
 });
 
 
-productSchema.statics.isProductExists = async function (id: string) {
+productSchema.statics.isProductExists = async function (id: any) {
   const existingProduct = await Product.findById(id);
 
   return existingProduct;
