@@ -13,7 +13,7 @@ const productSchema = new Schema<IProduct, ProductsModel>({
   brand: { type: String, required: true, trim: true },
   stock: { type: Number, required: true },
   rating: { type: Number, default: 0 },
-  images: { type: String, required: true },
+  image: { type: String, required: true },
   isDeleted: { type: Boolean, default: false }
 
 }, {

@@ -14,7 +14,7 @@ export interface IProduct {
   brand: string;
   stock: number;
   rating?: number;
-  images: string;
+  image: string;
   isDeleted?: boolean;
 }
 

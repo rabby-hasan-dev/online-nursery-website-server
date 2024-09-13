@@ -7,26 +7,29 @@ const ProductValidationSchema = z.object({
   body: z.object({
     title: z.string({ invalid_type_error: "title is Required" }).trim().min(1, 'title is required').max(100, 'title is too long'),
     description: z.string().trim().min(1, 'Description is required').max(2000, 'Description is too long'),
-    price: z.number().positive().nonnegative(),
+    price: z.number().positive(),
     category: z.string({ invalid_type_error: 'Category ID is required' }),
     brand: z.string().trim().min(1, 'Brand is required'),
-    stock: z.number().nonnegative().int(),
+    stock: z.number().positive().int(),
     rating: z.number().optional(),
-    images: z.string({ invalid_type_error: 'Image URL is required' })
+    image: z.string({ invalid_type_error: 'Image URL is required' })
   })
 })
-const UpdateProductValidationSchema = z.object({
+
+
+const UpdateProductValidationSchema =z.object({
   body: z.object({
     title: z.string({ invalid_type_error: "title is Required" }).trim().min(1, 'title is required').max(100, 'title is too long').optional(),
     description: z.string().trim().min(1, 'Description is required').max(2000, 'Description is too long').optional(),
-    price: z.number().positive().nonnegative().optional(),
-    category: z.string({ invalid_type_error: 'Category ID is required' }).optional(),
+    price: z.number().positive().optional(),
     brand: z.string().trim().min(1, 'Brand is required').optional(),
-    stock: z.number().nonnegative().int().optional(),
+    stock: z.number().positive().int().optional(),
     rating: z.number().optional(),
-    images: z.string({ invalid_type_error: 'Image URL is required' }).optional()
+    image: z.string({ invalid_type_error: 'Image URL is required' }).optional(),
   })
 })
+
+
 
 
 export const productZodValidator = {

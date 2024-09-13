@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post('/', validateRequest(productZodValidator.ProductValidationSchema), productController.createProduct);
 router.get('/', productController.getAllProduct);
-router.get('/:productId', productController.getProductById);
+router.get('/singleProduct/:productId', productController.getProductById);
 router.put('/:productId', validateRequest(productZodValidator.UpdateProductValidationSchema), productController.getProductByIdAndUpdate);
 router.delete(
   '/:productId',
