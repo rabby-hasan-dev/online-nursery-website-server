@@ -1,15 +1,13 @@
 // Order interface
-
 import { Types } from "mongoose";
 
-
 export interface IOrder {
-  userId: string;
+  userId?: Types.ObjectId;
   productId: Types.ObjectId;
   quantity: number;
-  totalPrice: number;
-  isCancel?: boolean;
+  customerName: string;
+  customerPhone:  string;
+  customerAddress: string;
+  totalPrice?: number;
+  isCanceled?: boolean;
 }
-
-
-

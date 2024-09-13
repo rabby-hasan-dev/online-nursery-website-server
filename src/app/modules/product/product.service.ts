@@ -16,8 +16,7 @@ const getAllPrductIntoDB = async (query: Record<string, unknown>) => {
   // const result = await Product.find({ isDeleted: { $ne: true } });
   // return result;
 
-  console.log(query);
-  const productSearchableField = ["name", "description"];
+  const productSearchableField = ["title", "description"];
 
   const productQuery = new QueryBuilder(
     Product.find().populate("category"), query)

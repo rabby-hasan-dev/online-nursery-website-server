@@ -12,7 +12,7 @@ export interface IProduct {
   price: number;
   category: Types.ObjectId;
   brand: string;
-  stock: number;
+  quantity: number;
   rating?: number;
   image: string;
   isDeleted?: boolean;

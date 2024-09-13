@@ -10,7 +10,7 @@ const ProductValidationSchema = z.object({
     price: z.number().positive(),
     category: z.string({ invalid_type_error: 'Category ID is required' }),
     brand: z.string().trim().min(1, 'Brand is required'),
-    stock: z.number().positive().int(),
+    quantity: z.number().positive().int(),
     rating: z.number().optional(),
     image: z.string({ invalid_type_error: 'Image URL is required' })
   })
@@ -23,7 +23,7 @@ const UpdateProductValidationSchema =z.object({
     description: z.string().trim().min(1, 'Description is required').max(2000, 'Description is too long').optional(),
     price: z.number().positive().optional(),
     brand: z.string().trim().min(1, 'Brand is required').optional(),
-    stock: z.number().positive().int().optional(),
+    quantity: z.number().positive().int().optional(),
     rating: z.number().optional(),
     image: z.string({ invalid_type_error: 'Image URL is required' }).optional(),
   })

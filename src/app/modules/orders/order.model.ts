@@ -1,39 +1,70 @@
 import { model, Schema } from "mongoose";
+import { IOrder } from "./order.interface";
+import { Product } from "../product/product.model";
 
 
-
-
-const orderSchema = new Schema({
+const orderSchema = new Schema<IOrder>({
   userId: {
-    // type: Schema.Types.ObjectId,
-    type: String,
-    required: true,
-    // ref: 'User' // Reference to the User model 
+    type: Schema.Types.ObjectId,
+    ref: 'User',
   },
   productId: {
     type: Schema.Types.ObjectId,
+    ref: 'Product',
     required: true,
-    ref: 'Product' // Reference to the Product model
   },
   quantity: {
     type: Number,
     required: true,
-    min: 1 // Optional, ensures quantity is positive
   },
   totalPrice: {
     type: Number,
-    required: true
   },
-  isCancel: {
+  isCanceled: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
+  customerName: {
+    type: String,
+    required: true,
+  },
+  customerPhone: {
+    type: String,
+    required: true,
+  },
+  customerAddress: {
+    type: String,
+    required: true,
+  },
 }, {
   timestamps: true,
-  versionKey: false
+  versionKey: false,
 });
 
-export const Order = model('Order', orderSchema);
+orderSchema.pre('save', async function (next) {
+  if (this.isModified('quantity') || this.isNew) {
+    const product = await Product.findById(this.productId);
+    if (product) {
+      if (product.quantity < this.quantity) {
+        throw new Error('Not enough product quantity available');
+      }
+      this.totalPrice = product.price * this.quantity;
+    } else {
+      throw new Error('Product not found');
+    }
+  }
+  next();
+});
+
+orderSchema.post('save', async function () {
+  const product = await Product.findById(this.productId);
+  if (product) {
+    product.quantity -= this.quantity;
+    await product.save();
+  }
+});
+
+export const Order = model<IOrder>('Order', orderSchema);
 
 
 

@@ -83,7 +83,6 @@ const getOrderByIdAndDelete = catchAsync(async (req, res, next) => {
 const getOrderByIdAndUpdate = catchAsync(async (req, res, next) => {
   const { orderId } = req.params;
   const updateData = req.body;
-
   const result = await OrderService.getOrderByIdAndUpdateIntoDB(orderId, updateData);
 
 

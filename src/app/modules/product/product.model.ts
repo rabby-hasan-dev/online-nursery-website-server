@@ -11,7 +11,7 @@ const productSchema = new Schema<IProduct, ProductsModel>({
   price: { type: Number, required: true },
   category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
   brand: { type: String, required: true, trim: true },
-  stock: { type: Number, required: true },
+  quantity: { type: Number, required: true },
   rating: { type: Number, default: 0 },
   image: { type: String, required: true },
   isDeleted: { type: Boolean, default: false }
