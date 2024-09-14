@@ -77,10 +77,7 @@ const getCategoryByIdAndDelete = catchAsync(async (req, res, next) => {
 const getCategoryByIdAndUpdate = catchAsync(async (req, res, next) => {
     const { categoriesId } = req.params
     const updateData = req.body;
-    console.log(updateData);
     const result = await CategoryService.getCategoryByIdAndUpdateIntoDB(categoriesId, updateData);
-
-
     sendResponse(res, {
         statusCode: httpStatus.OK,
         succcess: true,

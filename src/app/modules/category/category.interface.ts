@@ -5,5 +5,6 @@ export interface ICategory {
     description?: string;
     productStock: number;
     isDeleted?: boolean;
+    sellNumber?:number
 
 }

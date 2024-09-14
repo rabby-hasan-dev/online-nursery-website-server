@@ -11,7 +11,6 @@ export interface IProduct {
   description: string;
   price: number;
   category: Types.ObjectId;
-  brand: string;
   quantity: number;
   rating?: number;
   image: string;
@@ -22,7 +21,8 @@ export interface IProduct {
 
 //  static instance model
 
-
 export interface ProductsModel extends Model<IProduct> {
+
   isProductExists(id: string): Promise<IProduct | null>;
+
 }
