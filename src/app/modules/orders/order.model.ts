@@ -1,45 +1,47 @@
-import { model, Schema } from "mongoose";
-import { IOrder } from "./order.interface";
-import { Product } from "../product/product.model";
+import { model, Schema } from 'mongoose';
+import { IOrder } from './order.interface';
+import { Product } from '../product/product.model';
 
-
-const orderSchema = new Schema<IOrder>({
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
+const orderSchema = new Schema<IOrder>(
+  {
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+    productId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Product',
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      required: true,
+    },
+    totalPrice: {
+      type: Number,
+    },
+    isCanceled: {
+      type: Boolean,
+      default: false,
+    },
+    customerName: {
+      type: String,
+      required: true,
+    },
+    customerPhone: {
+      type: String,
+      required: true,
+    },
+    customerAddress: {
+      type: String,
+      required: true,
+    },
   },
-  productId: {
-    type: Schema.Types.ObjectId,
-    ref: 'Product',
-    required: true,
+  {
+    timestamps: true,
+    versionKey: false,
   },
-  quantity: {
-    type: Number,
-    required: true,
-  },
-  totalPrice: {
-    type: Number,
-  },
-  isCanceled: {
-    type: Boolean,
-    default: false,
-  },
-  customerName: {
-    type: String,
-    required: true,
-  },
-  customerPhone: {
-    type: String,
-    required: true,
-  },
-  customerAddress: {
-    type: String,
-    required: true,
-  },
-}, {
-  timestamps: true,
-  versionKey: false,
-});
+);
 
 orderSchema.pre('save', async function (next) {
   if (this.isModified('quantity') || this.isNew) {
@@ -65,9 +67,3 @@ orderSchema.post('save', async function () {
 });
 
 export const Order = model<IOrder>('Order', orderSchema);
-
-
-
-
-
-

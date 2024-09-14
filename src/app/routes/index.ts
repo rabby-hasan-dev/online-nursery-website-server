@@ -3,7 +3,6 @@ import { categoryRouter } from '../modules/category/category.route';
 import { orderRouter } from '../modules/orders/order.route';
 import { productRouter } from '../modules/product/product.route';
 
-
 const router = Router();
 
 const moduleRoutes = [
@@ -19,7 +18,6 @@ const moduleRoutes = [
     path: '/orders',
     route: orderRouter,
   },
-
 ];
 
 moduleRoutes.forEach((routes) => router.use(routes.path, routes.route));

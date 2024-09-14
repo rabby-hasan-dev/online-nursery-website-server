@@ -1,10 +1,6 @@
 // Products interface
 
-import { Model, Types } from "mongoose";
-
-
-
-
+import { Model, Types } from 'mongoose';
 
 export interface IProduct {
   title: string;
@@ -17,12 +13,8 @@ export interface IProduct {
   isDeleted?: boolean;
 }
 
-
-
 //  static instance model
 
 export interface ProductsModel extends Model<IProduct> {
-
   isProductExists(id: string): Promise<IProduct | null>;
-
 }

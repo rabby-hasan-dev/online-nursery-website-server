@@ -5,10 +5,18 @@ import validateRequest from '../../middleware/validateRequest';
 
 const router = express.Router();
 
-router.post('/',validateRequest(CategoryZodValidator.CategoryValidationSchema), CategoryController.createCategory);
+router.post(
+  '/',
+  validateRequest(CategoryZodValidator.CategoryValidationSchema),
+  CategoryController.createCategory,
+);
 router.get('/', CategoryController.getAllCategory);
 router.get('/:categoriesId', CategoryController.getCategoryById);
-router.put('/:categoriesId', validateRequest(CategoryZodValidator.CategoryUpdateValidationSchema), CategoryController.getCategoryByIdAndUpdate);
+router.put(
+  '/:categoriesId',
+  validateRequest(CategoryZodValidator.CategoryUpdateValidationSchema),
+  CategoryController.getCategoryByIdAndUpdate,
+);
 router.delete('/:categoriesId', CategoryController.getCategoryByIdAndDelete);
 
 export const categoryRouter = router;
