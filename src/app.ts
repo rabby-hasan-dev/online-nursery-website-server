@@ -11,7 +11,7 @@ app.use(express.json());
 
 // middleware
 
-app.use(cors());
+app.use(cors({ origin: ['http://localhost:5173'], credentials: true }));
 
 //  APPLICATION ROUTEs
 app.use('/api', router);
